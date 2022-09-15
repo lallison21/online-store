@@ -5,15 +5,23 @@ export default class ItemStore {
         this._types = [
             {id: 1, name: "Толстовки"},
             {id: 2, name: "Водолазки"},
-            {id: 3 ,name: "Брюки"},
+            {id: 3, name: "Брюки"},
+            {id: 4, name: "Куртки"},
+            {id: 5, name: "Брюки"},
+            {id: 6, name: "Кросовки"},
         ]
         this._brands = [
-            {id: 1,name: "BOSS"},
-            {id: 2,name: "POLO"},
+            {id: 1, name: "BOSS"},
+            {id: 2, name: "POLO"},
+            {id: 3, name: "ADIDAS"},
+            {id: 4, name: "NIKE"},
         ]
         this._sizes = [
-            {id: 1,name: "L"},
-            {id: 2,name: "M"},
+            {id: 1, name: "S"},
+            {id: 2, name: "M"},
+            {id: 3, name: "L"},
+            {id: 4, name: "Xl"},
+            {id: 5, name: "XXL"},
         ]
         this._items = [
             {id: 1, name: "Водолазка POLO чёрная", price: 1999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
@@ -22,6 +30,8 @@ export default class ItemStore {
             {id: 4, name: "Толстовка POLO черная", price: 2999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
             {id: 5, name: "Толстовка POLO белая", price: 2999, rating:0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
         ]
+        this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
 
@@ -41,6 +51,14 @@ export default class ItemStore {
         this._items = items
     }
 
+    setSelectedType(type) {
+        this._selectedType = type
+    }
+
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand
+    }
+
     get types() {
         return this._types
     }
@@ -55,5 +73,13 @@ export default class ItemStore {
 
     get items() {
         return this._items
+    }
+
+    get selectedType() {
+        return this._selectedType
+    }
+
+    get selectedBrand() {
+        return this._selectedBrand
     }
 }
