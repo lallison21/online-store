@@ -24,11 +24,11 @@ export default class ItemStore {
             {id: 5, name: "XXL"},
         ]
         this._items = [
-            {id: 1, name: "Водолазка POLO чёрная", price: 1999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
-            {id: 2, name: "Водолазка BOSS чёрная", price: 2999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
-            {id: 3, name: "Толстовка BOSS черная", price: 2999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
-            {id: 4, name: "Толстовка POLO черная", price: 2999, rating: 0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
-            {id: 5, name: "Толстовка POLO белая", price: 2999, rating:0, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
+            {id: 1, name: "Водолазка POLO чёрная", price: 1999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
+            {id: 2, name: "Водолазка BOSS чёрная", price: 2999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
+            {id: 3, name: "Толстовка BOSS черная", price: 2999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
+            {id: 4, name: "Толстовка POLO черная", price: 2999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
+            {id: 5, name: "Толстовка POLO белая", price: 2999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"},
         ]
         this._selectedType = {}
         this._selectedBrand = {}
