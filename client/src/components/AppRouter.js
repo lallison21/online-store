@@ -3,6 +3,7 @@ import {Navigate, Routes, Route} from "react-router-dom";
 import {authRoutes, publicRoutes} from "../routes";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
+import {SHOP_ROUTE} from "../utils/consts";
 
 const AppRouter = observer(() => {
     const {user} = useContext(Context)
@@ -15,7 +16,7 @@ const AppRouter = observer(() => {
             {publicRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} exact/>
             )}
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to={SHOP_ROUTE}/>} />
         </Routes>
     );
 });

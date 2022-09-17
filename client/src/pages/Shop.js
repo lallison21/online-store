@@ -9,7 +9,9 @@ import banner from "../assets/banner.jpg"
 const Shop = () => {
     return (
         <Container>
-            <Image className="mt-2" width={1300} height={400} src={banner} />
+            <Row  className="mt-2">
+                <Image src={banner} />
+            </Row>
             <Row className="mt-3">
                 <Col md={3}>
                     <TypeBar/>

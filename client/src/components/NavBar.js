@@ -12,6 +12,12 @@ const NavBar = observer(() => {
     const {user} = useContext(Context)
     const navigate = useNavigate()
 
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
+        localStorage.clear()
+    }
+
     return (
         <Navbar bg="dark" variant="dark">
             <NavLink className="ms-5" style={{color: 'white', textDecoration: "none"}} to={SHOP_ROUTE}>BananaShop</NavLink>
@@ -25,7 +31,7 @@ const NavBar = observer(() => {
                     </Button>
                     <Button
                         variant={"outline-light"}
-                        onClick={() => navigate(`${LOGIN_ROUTE}`)}
+                        onClick={() => logOut()}
                         className='mx-2'
                     >
                         Выйти
@@ -33,7 +39,7 @@ const NavBar = observer(() => {
                 </Nav>
                 :
                 <Nav className="ms-auto me-5" style={{color: 'white'}}>
-                    <Button variant={"outline-light"} onClick={() => user.setIsAuth(true)}>Авторизация</Button>
+                    <Button variant={"outline-light"} onClick={() => navigate(`${LOGIN_ROUTE}`)}>Авторизация</Button>
                 </Nav>
             }
         </Navbar>
