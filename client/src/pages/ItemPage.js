@@ -1,25 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from "../assets/bigStar.png"
+import {useParams} from "react-router-dom"
+import {fetchOneItem} from "../http/itemAPI";
 
 const ItemPage = () => {
-    const item = {id: 1, name: "Водолазка POLO чёрная", price: 1999, rating: 5, img: "https://vipavenue.ru/upload/catalog_photos/c4d/c4de643f9bd03c539bc140c13e0bab29.jpg"}
-    const description = [
-        {id: 1, title: 'Состав', description: 'Хлопок - 22%, Полиэстер - 78%'},
-        {id: 2, title: 'Длина', description: '80 см'},
-        {id: 3, title: 'Длина рукава', description: '74 см'},
-        {id: 4, title: 'Сезон', description: 'Лето'},
-        {id: 5, title: 'Цвет', description: 'Серый'},
-        {id: 6, title: 'Узор', description: 'Однотонный'},
-        {id: 7, title: 'Карманы', description: '2'},
-        {id: 8, title: 'Страна производства', description: 'Турция'},
-    ]
+    const [item, setItem] = useState({info: []})
+    const {id} = useParams()
+
+    useEffect(() => {
+        fetchOneItem(id).then(data => setItem(data))
+    }, [id])
 
     return (
         <Container className="mt-5">
             <Row>
                 <Col md={4}>
-                    <Image width={300} height={400} src={item.img}/>
+                    <Image width={300} height={400} src={process.env.REACT_APP_API_URL + item.img}/>
                 </Col>
                 <Col md={4}>
                     <Row className="d-flex flex-column align-items-center">
@@ -44,7 +41,7 @@ const ItemPage = () => {
             </Row>
             <Row className="d-flex flex-column m-3">
                 <h1>О товаре</h1>
-                {description.map((info, index) =>
+                {item.info.map((info, index) =>
                     <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10}}>
                         {info.title}: {info.description}
                     </Row>
