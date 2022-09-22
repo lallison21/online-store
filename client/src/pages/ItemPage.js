@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, Form, Image, Row} from "react-bootstrap";
 import bigStar from "../assets/bigStar.png"
 import {useParams} from "react-router-dom"
 import {fetchOneItem} from "../http/itemAPI";
@@ -16,10 +16,10 @@ const ItemPage = () => {
         <Container className="mt-5">
             <Row>
                 <Col md={4}>
-                    <Image width={300} height={400} src={process.env.REACT_APP_API_URL + item.img}/>
+                    <Image height={400} src={process.env.REACT_APP_API_URL + item.img} className="ms-5"/>
                 </Col>
                 <Col md={4}>
-                    <Row className="d-flex flex-column align-items-center">
+                    <Form className="d-flex flex-column align-items-center">
                         <h2>{item.name}</h2>
                         <div
                             className="d-flex align-items-center justify-content-center"
@@ -27,7 +27,7 @@ const ItemPage = () => {
                         >
                             {item.rating}
                         </div>
-                    </Row>
+                    </Form>
                 </Col>
                 <Col md={4}>
                     <Card
