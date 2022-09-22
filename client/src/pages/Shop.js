@@ -8,6 +8,7 @@ import banner from "../assets/banner.jpg"
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchBrands, fetchItems, fetchTypes} from "../http/itemAPI";
+import Pages from "../components/Pages";
 
 const Shop = observer (() => {
     const {item} = useContext(Context)
@@ -15,8 +16,18 @@ const Shop = observer (() => {
     useEffect(() => {
         fetchTypes().then(data => item.setTypes(data))
         fetchBrands().then(data => item.setBrands(data))
-        fetchItems().then(data => item.setItems(data.rows))
+        fetchItems(null, null, 1, 3).then(data => {
+            item.setItems(data.rows)
+            item.setTotalCount(data.count)
+        })
     }, [item])
+
+    useEffect(() => {
+        fetchItems(item.selectedType.id, item.selectedBrand.id, item.page, 2).then(data => {
+            item.setItems(data.rows)
+            item.setTotalCount(data.count)
+        })
+    }, [item.page, item.selectedType, item.selectedBrand,])
 
     return (
         <Container>
@@ -30,6 +41,7 @@ const Shop = observer (() => {
                 <Col md={9}>
                     <BrandBar/>
                     <ItemList/>
+                    <Pages/>
                 </Col>
             </Row>
         </Container>

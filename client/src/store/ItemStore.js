@@ -14,6 +14,9 @@ export default class ItemStore {
         this._items = []
         this._selectedType = {}
         this._selectedBrand = {}
+        this._page = 1;
+        this._tottalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
 
@@ -34,10 +37,20 @@ export default class ItemStore {
     }
 
     setSelectedType(type) {
+        this.setPage(1)
         this._selectedType = type
     }
 
+    setPage(page) {
+        this._page = page
+    }
+
+    setTotalCount(totalCount) {
+        this._tottalCount = totalCount
+    }
+
     setSelectedBrand(brand) {
+        this.setPage(1)
         this._selectedBrand = brand
     }
 
@@ -63,5 +76,17 @@ export default class ItemStore {
 
     get selectedBrand() {
         return this._selectedBrand
+    }
+
+    get totalCount() {
+        return this._tottalCount
+    }
+
+    get page() {
+        return this._page
+    }
+
+    get limit() {
+        return this._limit
     }
 }
