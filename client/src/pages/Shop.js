@@ -27,7 +27,7 @@ const Shop = observer (() => {
             item.setItems(data.rows)
             item.setTotalCount(data.count)
         })
-    }, [item.page, item.selectedType, item.selectedBrand,])
+    }, [item, item.page, item.selectedType, item.selectedBrand])
 
     return (
         <Container>
