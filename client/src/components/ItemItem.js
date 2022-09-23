@@ -22,6 +22,9 @@ const ItemItem = ({item}) => {
                 <div>
                     {item.name}
                 </div>
+                <Card className="text-lg-center">
+                    {item.price} руб.
+                </Card>
             </Card>
         </Col>
     );
