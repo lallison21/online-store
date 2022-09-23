@@ -5,15 +5,17 @@ export default class ItemStore {
         this._types = []
         this._brands = []
         this._sizes = [
-            {id: 1, name: "S"},
-            {id: 2, name: "M"},
-            {id: 3, name: "L"},
-            {id: 4, name: "Xl"},
-            {id: 5, name: "XXL"},
+            {id: 1, name: "XS"},
+            {id: 2, name: "S"},
+            {id: 3, name: "M"},
+            {id: 4, name: "L"},
+            {id: 5, name: "Xl"},
+            {id: 6, name: "XXL"},
         ]
         this._items = []
         this._selectedType = {}
         this._selectedBrand = {}
+        this._selectedSize = {}
         this._page = 1;
         this._tottalCount = 0
         this._limit = 3
@@ -28,10 +30,6 @@ export default class ItemStore {
         this._brands = brands
     }
 
-    setSizes(sizes) {
-        this._sizes = sizes
-    }
-
     setItems(items) {
         this._items = items
     }
@@ -39,6 +37,10 @@ export default class ItemStore {
     setSelectedType(type) {
         this.setPage(1)
         this._selectedType = type
+    }
+
+    setSelectedSize(size) {
+        this._selectedSize = size;
     }
 
     setPage(page) {
@@ -76,6 +78,10 @@ export default class ItemStore {
 
     get selectedBrand() {
         return this._selectedBrand
+    }
+
+    get selectedSize() {
+        return this._selectedSize
     }
 
     get totalCount() {

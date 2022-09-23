@@ -40,6 +40,7 @@ const CreateItem = observer(({show, onHide}) => {
         formData.append('img', file)
         formData.append('brandId', item.selectedBrand.id)
         formData.append('typeId', item.selectedType.id)
+        formData.append('sizeId', item.selectedSize.id)
         formData.append('info', JSON.stringify(info))
         createItem(formData).then(data => onHide())
     }
@@ -90,6 +91,19 @@ const CreateItem = observer(({show, onHide}) => {
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
+                    <Dropdown className="mt-2 mb-2">
+                        <Dropdown.Toggle>{item.selectedSize.name || "Выберите размер товара"}</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            {item.sizes.map(size =>
+                                <Dropdown.Item
+                                    onClick={() => item.setSelectedSize(size)}
+                                    key={size.id}
+                                >
+                                    {size.name}
+                                </Dropdown.Item>
+                            )}
+                        </Dropdown.Menu>
+                    </Dropdown>
                     <Form.Control
                         className="mt-3"
                         placeholder="Введите стоимость товара"
