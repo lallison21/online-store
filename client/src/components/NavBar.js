@@ -7,6 +7,8 @@ import {ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../utils/const
 import {Button} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
+import logo from "../assets/logo.png"
+import Image from "react-bootstrap/Image";
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
@@ -20,9 +22,9 @@ const NavBar = observer(() => {
 
     return (
         <Navbar bg="dark" variant="dark">
-            <NavLink className="ms-5" style={{color: 'white', textDecoration: "none"}} to={SHOP_ROUTE}>BananaShop</NavLink>
+            <NavLink className="ms-5" to={SHOP_ROUTE}><Image src={logo} height={35}/></NavLink>
             {user.isAuth ?
-                <Nav className="ms-auto me-5" style={{color: 'white'}}>
+                <Nav className="ms-auto me-5">
                     {user.user.role === 'ADMIN' ?
                         <Button
                             variant={"outline-light"}
