@@ -4,21 +4,14 @@ export default class ItemStore {
     constructor() {
         this._types = []
         this._brands = []
-        this._sizes = [
-            {id: 1, name: "XS"},
-            {id: 2, name: "S"},
-            {id: 3, name: "M"},
-            {id: 4, name: "L"},
-            {id: 5, name: "Xl"},
-            {id: 6, name: "XXL"},
-        ]
+        this._sizes = []
         this._items = []
         this._selectedType = {}
         this._selectedBrand = {}
         this._selectedSize = {}
         this._page = 1;
         this._tottalCount = 0
-        this._limit = 3
+        this._limit = 9
         makeAutoObservable(this)
     }
 
@@ -34,12 +27,17 @@ export default class ItemStore {
         this._items = items
     }
 
+    setSizes(sizes) {
+        this._sizes = sizes
+    }
+
     setSelectedType(type) {
         this.setPage(1)
         this._selectedType = type
     }
 
     setSelectedSize(size) {
+        this.setPage(1)
         this._selectedSize = size;
     }
 

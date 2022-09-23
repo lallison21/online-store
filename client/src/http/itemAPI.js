@@ -20,14 +20,24 @@ export const fetchBrands = async () => {
     return data
 }
 
+export const createSize = async (size) => {
+    const {data} = await $authHost.post('api/size', size)
+    return data
+}
+
+export const fetchSizes = async () => {
+    const {data} = await $host.get('api/size')
+    return data
+}
+
 export const createItem = async (item) => {
     const {data} = await $authHost.post('api/item', item)
     return data
 }
 
-export const fetchItems = async (typeId, brandId, page, limit = 5) => {
+export const fetchItems = async (typeId, brandId, sizeId, page, limit = 9) => {
     const {data} = await $host.get('api/item', {params: {
-            typeId, brandId, page, limit
+            typeId, brandId, sizeId, page, limit
         }})
     return data
 }
