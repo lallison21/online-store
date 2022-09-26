@@ -14,7 +14,7 @@ const SizeBar = observer(() => {
                     style={{cursor: 'pointer', height: 40}}
                     key={size.id}
                     className="p-2 text-center"
-                    onClick={() => item.setSelectedSize(size)}
+                    onClick={() => size === item.selectedSize ? item.setSelectedSize({}) : item.setSelectedSize(size)}
                     border={size.id === item.selectedSize.id ? 'danger' : 'light'}
                 >
                     {size.name}

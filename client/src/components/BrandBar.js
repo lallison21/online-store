@@ -13,7 +13,7 @@ const BrandBar = observer(() => {
                     style={{cursor: 'pointer', height: 40}}
                     key={brand.id}
                     className="p-2 text-center"
-                    onClick={() => item.setSelectedBrand(brand)}
+                    onClick={() => brand === item.selectedBrand ? item.setSelectedBrand({}) : item.setSelectedBrand(brand)}
                     border={brand.id === item.selectedBrand.id ? 'danger' : 'light'}
                 >
                     {brand.name}
