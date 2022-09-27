@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Card, Col} from "react-bootstrap";
 import Image from "react-bootstrap/Image"
 import star from "../assets/star.png"
 import {useNavigate} from "react-router-dom";
 import {ITEM_ROUTE} from "../utils/consts";
+import Row from "react-bootstrap/Row";
 
 const ItemItem = ({item}) => {
     const navigate = useNavigate()
@@ -13,7 +14,7 @@ const ItemItem = ({item}) => {
             <Card style={{width: 150, cursor: 'pointer'}} border={"light"} className="mt-4 ms-5">
                 <Image width={150} src={process.env.REACT_APP_API_URL + item.img}/>
                 <div className="text-black-50 mt-2 d-flex justify-content-between align-items-center">
-                    <div>GOD</div>
+                    <div>Товар</div>
                     <div className="d-flex align-items-center">
                         <div className="me-1">{item.rating}</div>
                         <Image width={15} height={15} src={star}/>

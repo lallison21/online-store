@@ -1,12 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Form, Image, Row} from "react-bootstrap";
 import bigStar from "../assets/bigStar.png"
-import {useParams} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 import {fetchOneItem} from "../http/itemAPI";
+import {Context} from "../index";
+import {ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE} from "../utils/consts";
 
 const ItemPage = () => {
     const [item, setItem] = useState({info: []})
     const {id} = useParams()
+    const {user} = useContext(Context)
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchOneItem(id).then(data => setItem(data))
@@ -35,7 +39,21 @@ const ItemPage = () => {
                         style={{width: 300, height: 400, fontSize: 32, border: '5px solid lightgray'}}
                     >
                         <h3>{item.price} руб.</h3>
-                        <Button variant={"outline-dark"}>Добавить в корзину</Button>
+                        {user.user.role === 'USER' ?
+                            <Button
+                                variant={"outline-dark"}
+                                onClick={() => user.isAuth ? navigate(`${BASKET_ROUTE}`) : navigate(`${LOGIN_ROUTE}`)}
+                            >
+                                Добавить в козину
+                            </Button>
+                            :
+                            <Button
+                                variant={"outline-dark"}
+                                onClick={() => user.isAuth ? navigate(ADMIN_ROUTE) : navigate(`${LOGIN_ROUTE}`)}
+                            >
+                                Добавить новый товар
+                            </Button>
+                        }
                     </Card>
                 </Col>
             </Row>
