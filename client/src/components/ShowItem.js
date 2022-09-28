@@ -4,9 +4,8 @@ import Image from "react-bootstrap/Image"
 import star from "../assets/star.png"
 import {useNavigate} from "react-router-dom";
 import {ITEM_ROUTE} from "../utils/consts";
-import Row from "react-bootstrap/Row";
 
-const ItemItem = ({item}) => {
+const ShowItem = ({item}) => {
     const navigate = useNavigate()
 
     return (
@@ -31,4 +30,4 @@ const ItemItem = ({item}) => {
     );
 };
 
-export default ItemItem;
+export default ShowItem;

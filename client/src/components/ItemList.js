@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import Row from "react-bootstrap/Row";
-import ItemItem from "./ItemItem";
+import ShowItem from "./ShowItem";
 
 const ItemList = observer(() => {
     const {item} = useContext(Context)
@@ -10,7 +10,7 @@ const ItemList = observer(() => {
     return (
         <Row className="d-flex">
             {item.items.map(item =>
-                <ItemItem
+                <ShowItem
                     key={item.id}
                     item={item}
                 />
