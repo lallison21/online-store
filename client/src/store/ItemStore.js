@@ -11,7 +11,7 @@ export default class ItemStore {
         this._selectedSize = {}
         this._page = 1;
         this._tottalCount = 0
-        this._limit = 9
+        this._limit = 12
         makeAutoObservable(this)
     }
 
